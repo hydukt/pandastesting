@@ -76,10 +76,15 @@ df = pd.read_csv('pokemon_data.csv')
 
 
 #filters for grass and poison. within pandas just use & not and. | substitutes for or
-print(df.loc[(df['Type 1'] == 'Grass') & (df['Type 2'] == 'Poison') & (df['HP'] > 70)])
+#print(df.loc[(df['Type 1'] == 'Grass') & (df['Type 2'] == 'Poison') & (df['HP'] > 70)])
 
+#can also add this to a new df, then you still have the full data frame available
+new_df = df.loc[(df['Type 1'] == 'Grass') & (df['Type 2'] == 'Poison') & (df['HP'] > 70)]
 
+print(new_df)
 
+#can add new df to csv
+new_df.to_csv('filteredcsv.csv')
 
 
 
