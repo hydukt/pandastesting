@@ -48,24 +48,39 @@ df = pd.read_csv('pokemon_data.csv')
 #another way of adding columns. uses integer location - first argument is just ":" to indicate all rows, second argument is columsn to be summed
 #.sum tells to add for the selected, axis = 1 adds horizontally, 0 would add vertically
 #end parameter is always exclusive, so ending at 10 includes 9 but not 10
-df['Total'] = df.iloc[:, 4:10].sum(axis=1)
+
+#df['Total'] = df.iloc[:, 4:10].sum(axis=1)
 
 
 #cols gets a list of all column values
-cols = list(df.columns.values)
+#cols = list(df.columns.values)
 
 #reorders columns so that total is closer to left
-df = df[cols[0:4] + [cols[-1]] + cols[4:12]]
+#df = df[cols[0:4] + [cols[-1]] + cols[4:12]]
 
 
-print(df.head(5))
+#print(df.head(5))
 
 
 #everything prior is strictly changing how data is displayed to us, not changing structure of data itself.
 #be careful when using hardcoded numbers for reference because if file column order changes code isn't good anymore
 
-#takes the updated view of the data frame and saves it to new csv
-df.to_csv('modified.csv')
+#takes the updated view of the data frame and saves it to new csv. index = false ensures the indexing isn't a column in output
+#df.to_csv('modified.csv', index=False)
+
+#outputs to excel
+#df.to_excel('modified.xlsx', index =False)
+
+#outputs to txt, separator set to tab
+#df.to_csv('modified.txt', index=False, sep='\t')
+
+
+#filters for grass and poison. within pandas just use & not and. | substitutes for or
+print(df.loc[(df['Type 1'] == 'Grass') & (df['Type 2'] == 'Poison') & (df['HP'] > 70)])
+
+
+
+
 
 
 
