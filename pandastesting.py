@@ -17,7 +17,18 @@ df = pd.read_csv('pokemon_data.csv')
 
 #print(df.iterrows)
 
-print(df.loc[df['Type 1'] == "Fire"])
+#print(df.loc[df['Type 1'] == "Fire"])
 
-print(df.loc[df['Type 1'] == "Water"])
+#print(df.loc[df['Type 1'] == "Grass"])
 
+#print(df.describe())
+
+#print sorting by name
+print(df.sort_values('Name'))
+
+#print sorting by name, descending order
+print(df.sort_values('Name', ascending=False))
+
+
+#Print, sorting by two values setting ascending for each
+print(df.sort_values(['Type 1','HP'], ascending=[1,0]))
